@@ -1,0 +1,8 @@
+services:
+  geo:
+    build: .
+    ports: ["8081:8081", "9091:9091/udp"]
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    volumes: ["./deploy/prometheus.yml:/etc/prometheus/prometheus.yml:ro"]
+    ports: ["9090:9090"]
